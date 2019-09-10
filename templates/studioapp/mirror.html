@@ -1,0 +1,21 @@
+{% extends 'studioapp/base.html' %}
+
+{% block page %}
+    <div class="card-body">
+        <div class="mirror">
+            {% for mirror in mirrors %}
+                <div class="list-mirror">
+
+                    <ul><img class="rounded" src="{{ MEDIA_URL }}{{ mirror.image }}"></ul>
+                    <ul><b>Размер: </b>{{ mirror.size }}</ul>
+                    <br>
+                    <ul><b>Цвет: </b>{{ mirror.color }}</ul>
+                    <br>
+                    <ul><b>Описание: </b>{{ mirror.short_description }}</ul>
+                    <br>
+                    <ul><b>Цена: </b>{{ mirror.price }}</ul>
+                    <button type="submit" href="{% url 'order' %}" class="but">Купить</button>
+                </div>
+            {% endfor %}
+        </div>
+{% endblock %}
